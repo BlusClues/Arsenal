@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvo30uhn4mpmt"]
+
+[ext_resource type="Script" uid="uid://bmmlc41xovrb1" path="res://scripts/thorny_rose.gd" id="1_0722k"]
+
+[node name="ThornyRose" type="Node2D"]
+editor_description = "Rahhhh I want to make the sprite for this but ahhh I am bad..
+I do have a paper drawing of this gun though, if anyone wants to take inspiration to develop this \"Rose\" and \"Thorns\" gun, it is bloodthirsty, thorny, if you take the t out lol."
+script = ExtResource("1_0722k")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="particleDump" type="Node" parent="."]

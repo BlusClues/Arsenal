@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://x6lpiynovkmj"]
+
+[ext_resource type="Script" uid="uid://bmqogmt4mxsj5" path="res://scripts/enemy.gd" id="1_d8p4b"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_iysny"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iysny"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d8p4b"]
+width = 50
+height = 50
+noise = SubResource("FastNoiseLite_iysny")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8p4b"]
+radius = 19.026299
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_d8p4b")
+
+[node name="body" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.03529412, 0, 1)
+position = Vector2(0, 4.7683725e-06)
+scale = Vector2(38.04309, 38.00001)
+mesh = SubResource("SphereMesh_iysny")
+texture = SubResource("NoiseTexture2D_d8p4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d8p4b")

@@ -1,0 +1,239 @@
+[gd_scene load_steps=20 format=3 uid="uid://cyiq6h5dknpgl"]
+
+[ext_resource type="Script" uid="uid://bkvp4byhv03pj" path="res://scripts/smile.gd" id="1_rr3ii"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hhhux"]
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_womp2"]
+width = 432
+height = 432
+noise = SubResource("FastNoiseLite_hhhux")
+
+[sub_resource type="Curve" id="Curve_rr3ii"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rr3ii"]
+colors = PackedColorArray(0.21230483, 0.21230483, 0.21230483, 1, 0.39308554, 0.3930855, 0.39308548, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr3ii"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hhhux"]
+material = SubResource("StandardMaterial3D_rr3ii")
+radial_segments = 4
+rings = 4
+
+[sub_resource type="Animation" id="Animation_rr3ii"]
+resource_name = "swing_from_right"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.3561945, -0.7853982, -2.3561945]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 0), Vector2(41, 0), Vector2(41, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hhhux"]
+resource_name = "swing_from_left"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.3561945, -0.7853982, 2.3561945]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(41, 0), Vector2(41, 0), Vector2(31, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_womp2"]
+resource_name = "scream"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_roq3m"]
+resource_name = "idle_swing"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.3561945]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhhux"]
+_data = {
+&"idle_swing": SubResource("Animation_roq3m"),
+&"scream": SubResource("Animation_womp2"),
+&"swing_from_left": SubResource("Animation_hhhux"),
+&"swing_from_right": SubResource("Animation_rr3ii")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr3ii"]
+size = Vector2(142, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhhux"]
+size = Vector2(100, 157)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rr3ii"]
+radius = 284.2974
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rr3ii"]
+frequency = 0.062
+fractal_octaves = 10
+fractal_gain = 0.585
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hhhux"]
+noise = SubResource("FastNoiseLite_rr3ii")
+
+[sub_resource type="Curve" id="Curve_womp2"]
+_data = [Vector2(0, 0), 0.0, 1.2099351, 0, 0, Vector2(1, 1), -0.564835, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_roq3m"]
+colors = PackedColorArray(0.14509805, 0.14509805, 0.14509805, 0.2, 0, 0, 0, 0)
+
+[node name="Smile" type="Node2D"]
+script = ExtResource("1_rr3ii")
+
+[node name="handle" type="Node2D" parent="."]
+position = Vector2(41, 0)
+rotation = -2.3561945
+
+[node name="handle" type="Line2D" parent="handle"]
+points = PackedVector2Array(0, 0, 96, 0)
+width = 6.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="handle"]
+position = Vector2(102.00001, 0)
+scale = Vector2(50.470192, 49.999992)
+amount = 32
+texture = SubResource("NoiseTexture2D_womp2")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.05
+scale_amount_max = 0.07
+scale_amount_curve = SubResource("Curve_rr3ii")
+color_ramp = SubResource("Gradient_rr3ii")
+
+[node name="face" type="MeshInstance2D" parent="handle"]
+modulate = Color(0.14406255, 0.14406255, 0.14406255, 1)
+position = Vector2(102, 3.8146973e-06)
+scale = Vector2(50.470192, 49.99999)
+mesh = SubResource("SphereMesh_hhhux")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hhhux")
+}
+autoplay = "idle_swing"
+
+[node name="eat_area" type="Area2D" parent="."]
+position = Vector2(120, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eat_area"]
+position = Vector2(-13, 0)
+shape = SubResource("RectangleShape2D_rr3ii")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="eat_area"]
+position = Vector2(-34, 2.5)
+shape = SubResource("RectangleShape2D_hhhux")
+
+[node name="scream_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scream_area"]
+shape = SubResource("CircleShape2D_rr3ii")
+
+[node name="scream_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = SubResource("NoiseTexture2D_hhhux")
+local_coords = true
+gravity = Vector2(0, 0)
+angular_velocity_min = -55.15
+angular_velocity_max = 50.9
+angle_min = -188.5
+angle_max = 168.5
+scale_amount_min = 0.7
+scale_amount_curve = SubResource("Curve_womp2")
+color_ramp = SubResource("Gradient_roq3m")
