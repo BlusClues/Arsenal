@@ -5,7 +5,19 @@
 [node name="DamageBuildup" type="Node2D"]
 script = ExtResource("1_r4bmk")
 
-[node name="dmg" type="Label" parent="."]
+[node name="exit_time" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="grow_time" type="Timer" parent="."]
+wait_time = 0.45
+one_shot = true
+autostart = true
+
+[node name="global" type="Node" parent="."]
+
+[node name="dmg" type="Label" parent="global"]
 offset_right = 100.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -13,12 +25,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.49019608)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.53333336)
 theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 31
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 19
 text = "0"
 
-[node name="exit_time" type="Timer" parent="."]
-wait_time = 2.5
-one_shot = true
-autostart = true
-
 [connection signal="timeout" from="exit_time" to="." method="_on_exit_time_timeout"]
+[connection signal="timeout" from="grow_time" to="." method="_on_grow_time_timeout"]

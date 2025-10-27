@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://x6lpiynovkmj"]
+[gd_scene load_steps=7 format=3 uid="uid://x6lpiynovkmj"]
 
 [ext_resource type="Script" uid="uid://bmqogmt4mxsj5" path="res://scripts/enemy.gd" id="1_d8p4b"]
 
@@ -14,7 +14,12 @@ noise = SubResource("FastNoiseLite_iysny")
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8p4b"]
 radius = 19.026299
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8p4b"]
+size = Vector2(34, 30)
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 5
+collision_mask = 7
 script = ExtResource("1_d8p4b")
 
 [node name="body" type="MeshInstance2D" parent="."]
@@ -26,3 +31,14 @@ texture = SubResource("NoiseTexture2D_d8p4b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d8p4b")
+
+[node name="damage_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="damage_area"]
+position = Vector2(36, 0)
+shape = SubResource("RectangleShape2D_d8p4b")
+
+[node name="attack_time" type="Timer" parent="."]
+autostart = true

@@ -210,6 +210,8 @@ autoplay = "idle_swing"
 
 [node name="eat_area" type="Area2D" parent="."]
 position = Vector2(120, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="eat_area"]
 position = Vector2(-13, 0)
@@ -220,6 +222,8 @@ position = Vector2(-34, 2.5)
 shape = SubResource("RectangleShape2D_hhhux")
 
 [node name="scream_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scream_area"]
 shape = SubResource("CircleShape2D_rr3ii")
