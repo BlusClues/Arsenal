@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6f1ayogmjss"]
+
+[ext_resource type="Script" uid="uid://c8a0khuyl138u" path="res://scripts/player.gd" id="1_sl76b"]
+[ext_resource type="Script" uid="uid://br8ohvskwqoeo" path="res://scripts/weapons.gd" id="2_o1372"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sl76b"]
+radius = 24.020824
+
+[sub_resource type="SphereMesh" id="SphereMesh_o1372"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 7
+script = ExtResource("1_sl76b")
+
+[node name="weapons" type="Node2D" parent="."]
+script = ExtResource("2_o1372")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sl76b")
+
+[node name="mesh" type="MeshInstance2D" parent="."]
+position = Vector2(0, 5.722046e-06)
+scale = Vector2(50.056698, 50.000008)
+mesh = SubResource("SphereMesh_o1372")
+
+[node name="mesh2" type="MeshInstance2D" parent="."]
+position = Vector2(25, 0)
+rotation = -1.5707964
+scale = Vector2(26.029482, 50.000008)
+mesh = SubResource("SphereMesh_o1372")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true

@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://i6514qlktdel"]
+
+[ext_resource type="PackedScene" uid="uid://bf6f1ayogmjss" path="res://nodes/entities/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cyiq6h5dknpgl" path="res://nodes/weapons/smile.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://x6lpiynovkmj" path="res://nodes/entities/enemy.tscn" id="3_h2yge"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
+frequency = 0.0415
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
+noise = SubResource("FastNoiseLite_0xm2m")
+seamless = true
+
+[node name="Main" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2387.0
+offset_top = -1705.0
+offset_right = 3237.0
+offset_bottom = 2236.0
+texture = SubResource("NoiseTexture2D_h2yge")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(53, 101)
+
+[node name="Smile" parent="Player/weapons" index="0" instance=ExtResource("2_0xm2m")]
+
+[node name="Camera2D" parent="Player" index="4"]
+position_smoothing_enabled = false
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="enemies" instance=ExtResource("3_h2yge")]
+
+[node name="Enemy2" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(443, -56)
+
+[node name="Enemy3" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-225, -216)
+
+[node name="Enemy4" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-206, 267)
+
+[node name="Enemy5" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(340, 355)
+
+[node name="Enemy6" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(340, 355)
+
+[node name="Enemy7" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-3, 411)
+
+[node name="Enemy8" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-671, 251)
+
+[node name="Enemy9" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-652, 734)
+
+[node name="Enemy10" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-106, 822)
+
+[node name="Enemy11" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-106, 822)
+
+[node name="Enemy12" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(907, -386)
+
+[node name="Enemy13" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(239, -546)
+
+[node name="Enemy14" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(258, -63)
+
+[node name="Enemy15" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(804, 25)
+
+[node name="Enemy16" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(804, 25)
+
+[node name="Enemy17" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-244, -445)
+
+[node name="Enemy18" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-912, -605)
+
+[node name="Enemy19" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-893, -122)
+
+[node name="Enemy20" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-347, -34)
+
+[node name="Enemy21" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(-347, -34)
+
+[node name="Enemy22" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(989, 328)
+
+[node name="Enemy23" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(321, 168)
+
+[node name="Enemy24" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(340, 651)
+
+[node name="Enemy25" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(886, 739)
+
+[node name="Enemy26" parent="enemies" instance=ExtResource("3_h2yge")]
+position = Vector2(886, 739)
+
+[editable path="Player"]
