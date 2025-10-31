@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Arsenal"
-run/main_scene="uid://i6514qlktdel"
+run/main_scene="uid://6g4d4c1avdqv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Arsenal"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [input]
 
