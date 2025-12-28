@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://i6514qlktdel"]
+[gd_scene load_steps=8 format=3 uid="uid://i6514qlktdel"]
 
 [ext_resource type="PackedScene" uid="uid://bf6f1ayogmjss" path="res://nodes/entities/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cyiq6h5dknpgl" path="res://nodes/weapons/smile.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c7qcexa72vybd" path="res://scripts/healthBar.gd" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://x6lpiynovkmj" path="res://nodes/entities/enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
@@ -10,6 +10,12 @@ frequency = 0.0415
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
 noise = SubResource("FastNoiseLite_0xm2m")
 seamless = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0.919281, 3.008172e-06, 7.70092e-07, 1)
 
 [node name="Main" type="Node2D"]
 
@@ -23,10 +29,30 @@ texture = SubResource("NoiseTexture2D_h2yge")
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(53, 101)
 
-[node name="Smile" parent="Player/weapons" index="0" instance=ExtResource("2_0xm2m")]
-
-[node name="Camera2D" parent="Player" index="4"]
+[node name="Camera2D" parent="Player" index="3"]
 position_smoothing_enabled = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="healthBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.0
+offset_top = -151.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1bvp3")
+step = 1.0
+value = 100.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("2_h2yge")
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -106,5 +132,7 @@ position = Vector2(886, 739)
 
 [node name="Enemy26" parent="enemies" instance=ExtResource("3_h2yge")]
 position = Vector2(886, 739)
+
+[connection signal="healthChanged" from="Player" to="CanvasLayer/healthBar" method="_on_player_health_changed"]
 
 [editable path="Player"]

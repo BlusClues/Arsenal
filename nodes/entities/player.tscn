@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf6f1ayogmjss"]
+[gd_scene load_steps=4 format=3 uid="uid://bf6f1ayogmjss"]
 
 [ext_resource type="Script" uid="uid://c8a0khuyl138u" path="res://scripts/player.gd" id="1_sl76b"]
-[ext_resource type="Script" uid="uid://br8ohvskwqoeo" path="res://scripts/weapons.gd" id="2_o1372"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sl76b"]
 radius = 24.020824
@@ -12,9 +11,6 @@ radius = 24.020824
 collision_layer = 3
 collision_mask = 7
 script = ExtResource("1_sl76b")
-
-[node name="weapons" type="Node2D" parent="."]
-script = ExtResource("2_o1372")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sl76b")
