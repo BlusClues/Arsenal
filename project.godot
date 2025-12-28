@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Arsenal"
-run/main_scene="uid://6g4d4c1avdqv"
+run/main_scene="uid://i6514qlktdel"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
